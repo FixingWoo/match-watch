@@ -2,17 +2,11 @@ import '@/tokens/index.scss';
 import '@/styles/index.scss';
 
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+import cn from 'classnames';
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import { Column, Flex, Header } from '@/components';
+import { font } from '@/resources';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,10 +19,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
-    </html>
+    <Flex
+      suppressHydrationWarning
+      as="html"
+      lang="en"
+      className={cn(
+        font.primary.variable,
+        font.secondary.variable,
+        font.tertiary.variable
+      )}
+    >
+      <Column
+        style={{ minHeight: '100vh' }}
+        as="body"
+        fillWidth
+        margin="0"
+        padding="0"
+      >
+        <Header />
+        <Flex
+          zIndex={0}
+          fillWidth
+          flex={1}
+          paddingY="l"
+          paddingX="l"
+          horizontal="center"
+        >
+          <Flex horizontal="center" fillWidth minHeight="0">
+            {children}
+          </Flex>
+        </Flex>
+      </Column>
+    </Flex>
   );
 }
