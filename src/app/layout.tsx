@@ -1,3 +1,6 @@
+import '@/tokens/index.scss';
+import '@/styles/index.scss';
+
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 

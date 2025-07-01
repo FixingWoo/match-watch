@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  sassOptions: {
+    compiler: 'modern',
+    silenceDeprecations: ['legacy-js-api'],
+  },
+  experimental: {},
 };
 
 export default nextConfig;

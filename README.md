@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Match Watch
 
-## Getting Started
+API-Football을 활용하여 축구 리그, 팀, 선수 관련 정보를 제공합니다.
 
-First, run the development server:
+## 🛠️ 기술 스택
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Styling**: Sass
+- **State Management**: TanStack Query (React Query)
+- **HTTP Client**: Axios
+- **API**: API-Football
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 주요 기능
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **실시간 경기 결과**: 오늘의 경기와 라이브 스코어
+- **리그 순위**: 주요 5개 리그의 실시간 순위표
+- **팀 정보**: 상세한 팀 정보와 선수 명단
+- **선수 통계**: 개별 선수의 상세 통계
+- **검색 기능**: 팀, 선수, 리그 검색
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 주요 페이지
 
-## Learn More
+### 메인 대시보드 (`/`)
 
-To learn more about Next.js, take a look at the following resources:
+- 오늘의 경기 목록
+- 인기 리그 순위
+- 실시간 통계 카드
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 리그 페이지 (`/leagues`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 모든 리그 목록
+- 리그별 상세 정보
+- 시즌별 데이터
 
-## Deploy on Vercel
+### 경기 페이지 (`/fixtures`)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 경기 일정 캘린더
+- 실시간 스코어
+- 경기 상세 정보
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 팀 페이지 (`/teams`)
+
+- 팀 목록 및 검색
+- 팀별 선수 명단
+- 팀 통계
