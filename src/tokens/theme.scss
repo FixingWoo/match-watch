@@ -1,0 +1,202 @@
+:root {
+  /* FONT FAMILY */
+  --font-family-body: var(--font-primary);
+  --font-family-heading: var(--font-secondary);
+  --font-family-label: var(--font-tertiary);
+
+  --font-size-heading-multiplier: 1;
+  --font-size-body-multiplier: 1;
+  --font-size-label-multiplier: 1;
+
+  --line-height-heading-multiplier: 1;
+  --line-height-body-multiplier: 1;
+  --line-height-label-multiplier: 1;
+}
+
+/**
+ * scheme에서 정의한 컬러를 “의미 단위”로 매핑
+ * strong, medium, weak, alpha 등으로 구분
+ * background, on-background, border 등 UI 역할별로 변수 선언
+
+ * 의미 
+ * background - 배경색
+ * on-background - 폰트 혹은 이미지
+ * solid - 테두리 색
+ * on-solid - 테두리 색 위에 폰트 혹은 이미지
+ * border - 테두리 색
+ * alpha - 테두리 색 위에 폰트 혹은 이미지
+ */
+
+[data-theme='dark'] {
+  /* Neutral */
+  --neutral-background-strong: var(--scheme-gray-900);
+  --neutral-background-medium: var(--scheme-gray-800);
+  --neutral-background-weak: var(--scheme-gray-700);
+
+  --neutral-on-background-strong: var(--scheme-gray-100);
+  --neutral-on-background-medium: var(--scheme-gray-400);
+  --neutral-on-background-weak: var(--scheme-gray-500);
+
+  --neutral-border-strong: var(--scheme-gray-700);
+  --neutral-border-medium: var(--scheme-gray-600);
+  --neutral-border-weak: var(--scheme-gray-500);
+
+  --neutral-alpha-strong: var(--scheme-gray-900-50);
+  --neutral-alpha-medium: var(--scheme-gray-900-30);
+  --neutral-alpha-weak: var(--scheme-gray-900-10);
+
+  /* brand */
+  --brand-background-strong: var(--scheme-blue-500);
+  --brand-background-medium: var(--scheme-blue-400);
+  --brand-background-weak: var(--scheme-blue-100);
+
+  --brand-on-background-strong: var(--scheme-gray-100);
+  --brand-on-background-medium: var(--scheme-blue-900);
+  --brand-on-background-weak: var(--scheme-blue-700);
+
+  --brand-border-strong: var(--scheme-blue-400);
+  --brand-border-medium: var(--scheme-blue-300);
+  --brand-border-weak: var(--scheme-blue-200);
+
+  --brand-alpha-strong: var(--scheme-blue-600-50);
+  --brand-alpha-medium: var(--scheme-blue-600-30);
+  --brand-alpha-weak: var(--scheme-blue-600-10);
+
+  /* accent */
+  --accent-background-strong: var(--scheme-green-500);
+  --accent-background-medium: var(--scheme-green-400);
+  --accent-background-weak: var(--scheme-green-100);
+
+  --accent-on-background-strong: var(--scheme-gray-100);
+  --accent-on-background-medium: var(--scheme-green-900);
+  --accent-on-background-weak: var(--scheme-green-700);
+
+  --accent-border-strong: var(--scheme-green-400);
+  --accent-border-medium: var(--scheme-green-300);
+  --accent-border-weak: var(--scheme-green-200);
+
+  --accent-alpha-strong: var(--scheme-green-500-50);
+  --accent-alpha-medium: var(--scheme-green-500-30);
+  --accent-alpha-weak: var(--scheme-green-500-10);
+
+  /* warning */
+  --warning-background-strong: var(--scheme-yellow-500);
+  --warning-background-medium: var(--scheme-yellow-400);
+  --warning-background-weak: var(--scheme-yellow-100);
+
+  --warning-on-background-strong: var(--scheme-gray-100);
+  --warning-on-background-medium: var(--scheme-yellow-900);
+  --warning-on-background-weak: var(--scheme-yellow-700);
+
+  --warning-border-strong: var(--scheme-yellow-400);
+  --warning-border-medium: var(--scheme-yellow-300);
+  --warning-border-weak: var(--scheme-yellow-200);
+
+  --warning-alpha-strong: var(--scheme-yellow-500-50);
+  --warning-alpha-medium: var(--scheme-yellow-500-30);
+  --warning-alpha-weak: var(--scheme-yellow-500-10);
+
+  /* danger */
+  --danger-background-strong: var(--scheme-red-500);
+  --danger-background-medium: var(--scheme-red-400);
+  --danger-background-weak: var(--scheme-red-100);
+
+  --danger-on-background-strong: var(--scheme-gray-100);
+  --danger-on-background-medium: var(--scheme-red-900);
+  --danger-on-background-weak: var(--scheme-red-700);
+
+  --danger-border-strong: var(--scheme-red-400);
+  --danger-border-medium: var(--scheme-red-300);
+  --danger-border-weak: var(--scheme-red-200);
+
+  --danger-alpha-strong: var(--scheme-red-500-50);
+  --danger-alpha-medium: var(--scheme-red-500-30);
+  --danger-alpha-weak: var(--scheme-red-500-10);
+}
+
+[data-theme='light'] {
+  /* neutral */
+  --neutral-background-strong: var(--scheme-gray-100);
+  --neutral-background-medium: var(--scheme-gray-200);
+  --neutral-background-weak: var(--scheme-gray-300);
+
+  --neutral-on-background-strong: var(--scheme-gray-900);
+  --neutral-on-background-medium: var(--scheme-gray-600);
+  --neutral-on-background-weak: var(--scheme-gray-500);
+
+  --neutral-border-strong: var(--scheme-gray-400);
+  --neutral-border-medium: var(--scheme-gray-300);
+  --neutral-border-weak: var(--scheme-gray-200);
+
+  --neutral-alpha-strong: var(--scheme-gray-100-50);
+  --neutral-alpha-medium: var(--scheme-gray-100-30);
+  --neutral-alpha-weak: var(--scheme-gray-100-10);
+
+  /* brand */
+  --brand-background-strong: var(--scheme-blue-500);
+  --brand-background-medium: var(--scheme-blue-400);
+  --brand-background-weak: var(--scheme-blue-100);
+
+  --brand-on-background-strong: var(--scheme-gray-100);
+  --brand-on-background-medium: var(--scheme-blue-900);
+  --brand-on-background-weak: var(--scheme-blue-700);
+
+  --brand-border-strong: var(--scheme-blue-400);
+  --brand-border-medium: var(--scheme-blue-300);
+  --brand-border-weak: var(--scheme-blue-200);
+
+  --brand-alpha-strong: var(--scheme-blue-600-50);
+  --brand-alpha-medium: var(--scheme-blue-600-30);
+  --brand-alpha-weak: var(--scheme-blue-600-10);
+
+  /* accent */
+  --accent-background-strong: var(--scheme-green-500);
+  --accent-background-medium: var(--scheme-green-400);
+  --accent-background-weak: var(--scheme-green-100);
+
+  --accent-on-background-strong: var(--scheme-gray-100);
+  --accent-on-background-medium: var(--scheme-green-900);
+  --accent-on-background-weak: var(--scheme-green-700);
+
+  --accent-border-strong: var(--scheme-green-400);
+  --accent-border-medium: var(--scheme-green-300);
+  --accent-border-weak: var(--scheme-green-200);
+
+  --accent-alpha-strong: var(--scheme-green-500-50);
+  --accent-alpha-medium: var(--scheme-green-500-30);
+  --accent-alpha-weak: var(--scheme-green-500-10);
+
+  /* warning */
+  --warning-background-strong: var(--scheme-yellow-500);
+  --warning-background-medium: var(--scheme-yellow-400);
+  --warning-background-weak: var(--scheme-yellow-100);
+
+  --warning-on-background-strong: var(--scheme-gray-100);
+  --warning-on-background-medium: var(--scheme-yellow-900);
+  --warning-on-background-weak: var(--scheme-yellow-700);
+
+  --warning-border-strong: var(--scheme-yellow-400);
+  --warning-border-medium: var(--scheme-yellow-300);
+  --warning-border-weak: var(--scheme-yellow-200);
+
+  --warning-alpha-strong: var(--scheme-yellow-500-50);
+  --warning-alpha-medium: var(--scheme-yellow-500-30);
+  --warning-alpha-weak: var(--scheme-yellow-500-10);
+
+  /* danger */
+  --danger-background-strong: var(--scheme-red-500);
+  --danger-background-medium: var(--scheme-red-400);
+  --danger-background-weak: var(--scheme-red-100);
+
+  --danger-on-background-strong: var(--scheme-gray-100);
+  --danger-on-background-medium: var(--scheme-red-900);
+  --danger-on-background-weak: var(--scheme-red-700);
+
+  --danger-border-strong: var(--scheme-red-400);
+  --danger-border-medium: var(--scheme-red-300);
+  --danger-border-weak: var(--scheme-red-200);
+
+  --danger-alpha-strong: var(--scheme-red-500-50);
+  --danger-alpha-medium: var(--scheme-red-500-30);
+  --danger-alpha-weak: var(--scheme-red-500-10);
+}

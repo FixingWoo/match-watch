@@ -1,0 +1,74 @@
+/**
+ * 프로젝트 전체에서 사용할 “원천 컬러 팔레트”를 정의
+ * 실제 색상값(HEX, RGBA 등)을 100~1000(혹은 1200) 단위로 세분화
+ */
+
+:root {
+  /* STATIC */
+  --static-transparent: #00000000;
+  --static-white: #ffffff;
+  --static-white-medium: #ffffff4d;
+  --static-black: #000000;
+  --static-black-medium: #0000004d;
+
+  /* BASE */
+  /* gray */
+  --scheme-gray-100: #f4f5f6;
+  --scheme-gray-200: #e5e7eb;
+  --scheme-gray-300: #d1d5db;
+  --scheme-gray-400: #a3a3a3;
+  --scheme-gray-500: #777e90;
+  --scheme-gray-600: #353945;
+  --scheme-gray-700: #23262f;
+  --scheme-gray-800: #181a20;
+  --scheme-gray-900: #13151a;
+  --scheme-gray-1000: #0a0b0d;
+
+  /* blue */
+  --scheme-blue-100: #dbeafe;
+  --scheme-blue-200: #bfdbfe;
+  --scheme-blue-300: #93c5fd;
+  --scheme-blue-400: #60a5fa;
+  --scheme-blue-500: #2563eb;
+  --scheme-blue-600: #1d4ed8;
+  --scheme-blue-700: #1e40af;
+  --scheme-blue-800: #1e3a8a;
+  --scheme-blue-900: #172554;
+  --scheme-blue-1000: #0c1022;
+
+  /* green */
+  --scheme-green-100: #dcfce7;
+  --scheme-green-200: #bbf7d0;
+  --scheme-green-300: #86efac;
+  --scheme-green-400: #4ade80;
+  --scheme-green-500: #22c55e;
+  --scheme-green-600: #16a34a;
+  --scheme-green-700: #15803d;
+  --scheme-green-800: #166534;
+  --scheme-green-900: #14532d;
+  --scheme-green-1000: #0b2e13;
+
+  /* red */
+  --scheme-red-100: #fee2e2;
+  --scheme-red-200: #fecaca;
+  --scheme-red-300: #fca5a5;
+  --scheme-red-400: #f87171;
+  --scheme-red-500: #ef4444;
+  --scheme-red-600: #dc2626;
+  --scheme-red-700: #b91c1c;
+  --scheme-red-800: #991b1b;
+  --scheme-red-900: #7f1d1d;
+  --scheme-red-1000: #5b1010;
+
+  /* yellow */
+  --scheme-yellow-100: #fef9c3;
+  --scheme-yellow-200: #fef08a;
+  --scheme-yellow-300: #fde047;
+  --scheme-yellow-400: #facc15;
+  --scheme-yellow-500: #eab308;
+  --scheme-yellow-600: #ca8a04;
+  --scheme-yellow-700: #a16207;
+  --scheme-yellow-800: #854d0e;
+  --scheme-yellow-900: #713f12;
+  --scheme-yellow-1000: #422006;
+}
