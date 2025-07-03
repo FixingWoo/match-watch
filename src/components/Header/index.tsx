@@ -1,35 +1,34 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { Flex, ThemeToggle, Button, Text, ToggleButton } from '@/components';
 import { routes } from '@/resources';
 
 const Header = () => {
   const pathname = usePathname() ?? '';
-  const router = useRouter();
 
   return (
     <Flex horizontal="space-between" vertical="center" padding="16">
-      <Text
-        className="cursor-interactive"
-        variant="heading-strong-l"
-        onClick={() => router.push('/')}
-      >
-        Match Watch
-      </Text>
+      <Link href="/">
+        <Text className="cursor-interactive" variant="heading-strong-l">
+          Match Watch
+        </Text>
+      </Link>
       <Flex gap="20" vertical="center">
         {routes
           .filter((route) => route.display)
           .map((route) => (
-            <Button
-              key={route.href}
-              href={route.href}
-              label={route.label}
-              variant="ghost"
-              size="l"
-              selected={pathname === route.href}
-            />
+            <Link href={route.href} key={route.href}>
+              <Button
+                key={route.href}
+                label={route.label}
+                variant="ghost"
+                size="l"
+                selected={pathname === route.href}
+              />
+            </Link>
           ))}
       </Flex>
       <Flex vertical="center" gap="4">
