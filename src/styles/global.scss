@@ -50,6 +50,11 @@ img {
   user-select: none;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 ::selection {
   background: var(--neutral-on-background-medium);
   color: var(--neutral-background-strong);
