@@ -31,6 +31,24 @@ export default function RootLayout({
         font.tertiary.variable
       )}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme') || 'dark';
+                  const root = document.documentElement;
+                  
+                  root.setAttribute('data-theme', theme);
+                } catch (e) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <ThemeProvider>
         <Column
           style={{ minHeight: '100vh' }}

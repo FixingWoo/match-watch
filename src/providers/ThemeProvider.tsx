@@ -26,10 +26,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     if (!mounted) return;
 
     const root = document.documentElement;
-
-    theme === 'dark'
-      ? root.setAttribute('data-theme', 'dark')
-      : root.setAttribute('data-theme', 'light');
+    root.setAttribute('data-theme', theme);
   }, [theme, mounted]);
 
   const value = {
