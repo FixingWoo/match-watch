@@ -25,6 +25,7 @@ interface ICommonProps extends CommonProps {
   fillWidth?: boolean;
   href?: string;
   weight?: 'default' | 'strong';
+  selected?: boolean;
 }
 
 export type ButtonProps = ICommonProps &
@@ -43,6 +44,7 @@ const Button = ({
   href,
   fillWidth = false,
   weight = 'strong',
+  selected = false,
   className,
   style,
   id,
@@ -60,6 +62,7 @@ const Button = ({
         styles.button,
         styles[variant],
         styles[size],
+        selected && styles.selected,
         radius === 'none'
           ? 'radius-none'
           : radius

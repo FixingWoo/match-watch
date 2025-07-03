@@ -20,7 +20,8 @@
   background: var(--static-transparent);
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.selected {
     color: var(--static-white);
     background: var(--brand-background-strong);
   }
