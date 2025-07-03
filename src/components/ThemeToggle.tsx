@@ -9,6 +9,7 @@ export const ThemeToggle: React.FC = () => {
 
   return (
     <ToggleButton
+      size="l"
       prefixIcon={theme === 'dark' ? 'moon' : 'sun'}
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       selected={false}

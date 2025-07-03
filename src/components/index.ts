@@ -1,3 +1,4 @@
+export * from './Button';
 export * from './Column';
 export * from './ElementType';
 export * from './Flex';
