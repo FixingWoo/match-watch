@@ -38,6 +38,7 @@ export default function RootLayout({
           fillWidth
           margin="0"
           padding="0"
+          background="neutral-strong"
         >
           <Header />
           <Flex

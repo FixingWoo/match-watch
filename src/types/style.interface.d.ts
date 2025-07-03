@@ -4,7 +4,6 @@ interface CommonProps {
   onBackground?: `${ColorScheme}-${ColorWeight}`;
   align?: CSSProperties['textAlign'];
   ref?: Ref<HTMLElement>;
-  children?: ReactNode;
 }
 
 interface ConditionalProps {
