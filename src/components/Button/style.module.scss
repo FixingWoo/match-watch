@@ -18,11 +18,10 @@
 .ghost {
   border: none;
   background: var(--static-transparent);
-  color: var(--neutral-on-background-strong);
 
   &:hover,
   &:focus {
-    color: var(--neutral-on-background-strong);
+    color: var(--static-white);
     background: var(--brand-background-strong);
   }
 }
