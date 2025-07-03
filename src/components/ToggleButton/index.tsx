@@ -59,6 +59,7 @@ const ToggleButton = ({
           ? `radius-${size}-${radius}`
           : `radius-${size}`,
         'text-decoration-none',
+        label || children ? 'g-8' : 'g-0',
         className
       )}
       style={style}
@@ -67,9 +68,12 @@ const ToggleButton = ({
       {prefixIcon && (
         <Icon name={prefixIcon} size={size === 'l' ? 's' : 'xs'} />
       )}
-      <Flex horizontal={justifyContent} position="static">
-        {label || children}
-      </Flex>
+
+      {(label || children) && (
+        <Flex horizontal={justifyContent} position="static">
+          {label ?? children}
+        </Flex>
+      )}
     </ElementType>
   );
 };

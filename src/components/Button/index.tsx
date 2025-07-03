@@ -9,6 +9,7 @@ import { ElementType, Flex } from '@/components';
 
 interface ICommonProps extends CommonProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost';
+  size?: 's' | 'm' | 'l';
   justifyContent?: 'start' | 'center' | 'end' | 'space-between';
   radius?:
     | 'none'
@@ -20,7 +21,6 @@ interface ICommonProps extends CommonProps {
     | 'top-right'
     | 'bottom-right'
     | 'bottom-left';
-  size?: 's' | 'm' | 'l';
   label?: string;
   fillWidth?: boolean;
   href?: string;
@@ -34,19 +34,19 @@ export type AnchorProps = ICommonProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Button = ({
-  ref,
   variant = 'primary',
+  size = 'm',
   justifyContent = 'center',
   radius,
   label,
   children,
-  size = 'm',
   href,
   fillWidth = false,
   weight = 'strong',
   className,
   style,
   id,
+  ref,
   ...props
 }: ButtonProps | AnchorProps) => {
   const radiusSize = size === 's' || size === 'm' ? 'm' : 'l';
