@@ -6,7 +6,7 @@ import styles from './style.module.scss';
 import { ElementType, Flex, Icon } from '@/components';
 import { IconName } from '@/resources';
 
-interface ToggleButtonProps extends CommonProps {
+interface IProps extends CommonProps {
   href?: string;
   variant?: 'ghost' | 'outline';
   size?: 's' | 'm' | 'l';
@@ -25,6 +25,10 @@ interface ToggleButtonProps extends CommonProps {
   justifyContent?: 'start' | 'center' | 'end' | 'space-between';
   prefixIcon?: IconName;
 }
+
+export type ToggleButtonProps = IProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
+
 const ToggleButton = ({
   ref,
   href,
