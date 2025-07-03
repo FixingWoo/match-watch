@@ -11,6 +11,23 @@
   --line-height-heading-multiplier: 1;
   --line-height-body-multiplier: 1;
   --line-height-label-multiplier: 1;
+
+  /* transition */
+  --transition-eased: ease-in-out;
+  --transition-property-all: all;
+
+  --transition-duration-micro-short: 0.1s;
+  --transition-duration-micro-medium: 0.2s;
+  --transition-duration-micro-long: 0.4s;
+
+  --transition-micro-short: var(--transition-property-all)
+    var(--transition-duration-micro-short) var(--transition-eased);
+
+  --transition-micro-medium: var(--transition-property-all)
+    var(--transition-duration-micro-medium) var(--transition-eased);
+
+  --transition-micro-long: var(--transition-property-all)
+    var(--transition-duration-micro-long) var(--transition-eased);
 }
 
 /**
