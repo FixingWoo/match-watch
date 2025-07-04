@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import styles from './style.module.scss';
 
 import { Flex, ThemeToggle, Button, Text, ToggleButton } from '@/components';
 import { routes } from '@/resources';
@@ -31,7 +32,7 @@ const Header = () => {
             </Link>
           ))}
       </Flex>
-      <Flex vertical="center" gap="4">
+      <Flex className={styles.toggle} vertical="center" gap="4">
         <ToggleButton prefixIcon="search" size="l" />
         <ThemeToggle />
       </Flex>
