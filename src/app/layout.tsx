@@ -2,24 +2,26 @@ import '@/tokens/index.scss';
 import '@/styles/index.scss';
 
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 
 import cn from 'classnames';
 
 import { Column, Flex, Header } from '@/components';
 import { font } from '@/resources';
 
-import { ThemeProvider } from '@/providers';
-
 export const metadata: Metadata = {
   title: 'Match Watch',
   description: 'Match Watch',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value || 'dark';
+
   return (
     <Flex
       suppressHydrationWarning
@@ -30,49 +32,30 @@ export default function RootLayout({
         font.secondary.variable,
         font.tertiary.variable
       )}
+      data-theme={theme}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const theme = localStorage.getItem('theme') || 'dark';
-                  const root = document.documentElement;
-                  
-                  root.setAttribute('data-theme', theme);
-                } catch (e) {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
-      <ThemeProvider>
-        <Column
-          style={{ minHeight: '100vh' }}
-          as="body"
+      <Column
+        style={{ minHeight: '100vh' }}
+        as="body"
+        fillWidth
+        margin="0"
+        padding="0"
+        background="neutral-strong"
+      >
+        <Header />
+        <Flex
+          zIndex={0}
           fillWidth
-          margin="0"
-          padding="0"
-          background="neutral-strong"
+          flex={1}
+          paddingY="l"
+          paddingX="l"
+          horizontal="center"
         >
-          <Header />
-          <Flex
-            zIndex={0}
-            fillWidth
-            flex={1}
-            paddingY="l"
-            paddingX="l"
-            horizontal="center"
-          >
-            <Flex horizontal="center" fillWidth minHeight="0">
-              {children}
-            </Flex>
+          <Flex horizontal="center" fillWidth minHeight="0">
+            {children}
           </Flex>
-        </Column>
-      </ThemeProvider>
+        </Flex>
+      </Column>
     </Flex>
   );
 }
