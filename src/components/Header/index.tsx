@@ -11,7 +11,13 @@ const Header = () => {
   const pathname = usePathname() ?? '';
 
   return (
-    <Flex horizontal="space-between" vertical="center" padding="16">
+    <Flex
+      horizontal="space-between"
+      vertical="center"
+      padding="16"
+      maxWidth={65}
+      marginY="0"
+    >
       <Link href="/">
         <Text className="cursor-interactive" variant="heading-strong-l">
           Match Watch
