@@ -1,21 +1,24 @@
 import { create } from 'zustand';
 import Cookies from 'js-cookie';
 
-const initialState = {
-  theme: 'dark',
-};
-
 interface ThemeStore {
   theme: Theme;
-  setTheme: () => void;
+  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
 }
 
 export const useThemeStore = create<ThemeStore>((set) => ({
-  theme: initialState.theme as Theme,
-  setTheme: () => {
+  theme: 'dark',
+  toggleTheme: () => {
     const cookieTheme = Cookies.get('theme') as Theme;
     const theme = cookieTheme === 'light' ? 'dark' : 'light';
 
+    Cookies.set('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+
+    set({ theme });
+  },
+  setTheme: (theme: Theme) => {
     Cookies.set('theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
 
