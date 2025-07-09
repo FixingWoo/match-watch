@@ -8,7 +8,7 @@ import cn from 'classnames';
 
 import { Column, Flex, Header } from '@/components';
 import { font } from '@/resources';
-import { ThemeProvider } from '@/providers';
+import { ThemeProvider, QueryProvider } from '@/providers';
 
 export const metadata: Metadata = {
   title: 'Match Watch',
@@ -44,19 +44,21 @@ export default async function RootLayout({
           padding="0"
           background="neutral-strong"
         >
-          <Header />
-          <Flex
-            zIndex={0}
-            fillWidth
-            flex={1}
-            paddingY="l"
-            paddingX="l"
-            horizontal="center"
-          >
-            <Flex horizontal="center" fillWidth minHeight="0">
-              {children}
+          <QueryProvider>
+            <Header />
+            <Flex
+              zIndex={0}
+              fillWidth
+              flex={1}
+              paddingY="l"
+              paddingX="l"
+              horizontal="center"
+            >
+              <Flex horizontal="center" fillWidth minHeight="0">
+                {children}
+              </Flex>
             </Flex>
-          </Flex>
+          </QueryProvider>
         </Column>
       </ThemeProvider>
     </Flex>
