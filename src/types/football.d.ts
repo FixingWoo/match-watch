@@ -1,15 +1,16 @@
 interface League {
-  id: number;
-  name: string;
-  type: string;
-  logo: string;
   country: {
-    name: string;
     code: string;
     flag: string;
+    name: string;
+  };
+  league: {
+    id: number;
+    logo: string;
+    name: string;
+    type: string;
   };
   season: number;
-  round: string;
 }
 
 interface Team {
