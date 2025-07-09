@@ -8,7 +8,7 @@ export async function generateMetadata() {
   });
 }
 
-export default function Work() {
+export default function International() {
   return (
     <Column maxWidth={'m'}>
       <Flex fillWidth horizontal="center" paddingTop="48">
