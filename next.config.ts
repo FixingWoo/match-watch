@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     compiler: 'modern',
     silenceDeprecations: ['legacy-js-api'],
   },
+  images: {
+    domains: ['media.api-sports.io'],
+  },
   experimental: {},
 };
 

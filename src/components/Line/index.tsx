@@ -18,7 +18,7 @@ const Line = ({ vert, fullWidth, className, style, ...rest }: LineProps) => {
       height={vert ? undefined : '1'}
       fillWidth={!vert}
       fillHeight={vert}
-      background="neutral-medium"
+      background="neutral-strong"
       direction={vert ? 'column' : 'row'}
       className={className}
       style={style}
