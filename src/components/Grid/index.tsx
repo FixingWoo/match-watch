@@ -1,41 +1,32 @@
 'use client';
 
-import { CSSProperties, HTMLAttributes } from 'react';
+import React, { HTMLAttributes, CSSProperties } from 'react';
 import cn from 'classnames';
 
-import { parseSize, getVariantClasses } from '@/utils';
+import { parseSize, generateDynamicClass } from '@/utils';
 
 interface ComponentProps
   extends HTMLAttributes<HTMLDivElement>,
-    FlexProps,
     SpacingProps,
     SizeProps,
     StyleProps,
     CommonProps,
     DisplayProps,
-    ConditionalProps {}
+    ConditionalProps,
+    GridProps {}
 
-const Flex = ({
+const Grid = ({
   as: Component = 'div',
+  inline,
+  columns,
+  gap,
+  aspectRatio,
+  tabletColumns,
+  mobileColumns,
   transition,
   onBackground,
   background,
   solid,
-  inline,
-  mobileDirection,
-  flex,
-  direction,
-  horizontal,
-  vertical,
-  center,
-  gap,
-  padding,
-  paddingLeft,
-  paddingRight,
-  paddingTop,
-  paddingBottom,
-  paddingX,
-  paddingY,
   border,
   borderTop,
   borderRight,
@@ -44,6 +35,13 @@ const Flex = ({
   borderStyle,
   borderWidth,
   radius,
+  padding,
+  paddingLeft,
+  paddingRight,
+  paddingTop,
+  paddingBottom,
+  paddingX,
+  paddingY,
   margin,
   marginLeft,
   marginRight,
@@ -85,70 +83,18 @@ const Flex = ({
   children,
   ...rest
 }: ComponentProps) => {
-  const sizeClass = textSize ? `font-${textSize}` : '';
-  const weightClass = textWeight ? `font-${textWeight}` : '';
-
-  let colorClass = '';
-  if (onBackground) {
-    const [scheme, weight] = onBackground.split('-') as [
-      ColorScheme,
-      ColorWeight
-    ];
-    colorClass = `${scheme}-on-background-${weight}`;
-  }
-
-  const variantClasses = textVariant
-    ? getVariantClasses(textVariant)
-    : [sizeClass, weightClass];
-
-  const generateDynamicClass = (type: string, value: string | undefined) => {
-    if (!value) return undefined;
-
-    if (value === 'transparent') {
-      return `transparent-border`;
-    }
-
-    const parts = value.split('-');
-    if (parts.includes('alpha')) {
-      const [scheme, , weight] = parts;
-      return `${scheme}-${type}-alpha-${weight}`;
-    }
-
-    const [scheme, weight] = value.split('-') as [ColorScheme, ColorWeight];
-    return `${scheme}-${type}-${weight}`;
-  };
-
   const classes = cn(
-    inline ? 'inline-flex' : 'flex',
-    mobileDirection && `s-flex-${mobileDirection}`,
-    direction && `flex-${direction}`,
-    flex && `flex-${flex}`,
+    inline ? 'inline-grid' : 'grid',
+    columns && `columns-${columns}`,
+    tabletColumns && `tablet-columns-${tabletColumns}`,
+    mobileColumns && `mobile-columns-${mobileColumns}`,
     generateDynamicClass('background', background),
     generateDynamicClass('solid', solid),
     generateDynamicClass(
       'border',
       border || borderTop || borderRight || borderBottom || borderLeft
     ),
-    horizontal &&
-      (direction === 'row' ||
-      direction === 'row-reverse' ||
-      direction === undefined
-        ? `justify-${horizontal}`
-        : `align-${horizontal}`),
-    vertical &&
-      (direction === 'row' ||
-      direction === 'row-reverse' ||
-      direction === undefined
-        ? `align-${vertical}`
-        : `justify-${vertical}`),
-    horizontal && `flex-${horizontal}`,
-    vertical && `flex-${vertical}`,
-    center && 'center',
-    gap === '-1'
-      ? direction === 'column' || direction === 'column-reverse'
-        ? 'g-vertical--1'
-        : 'g-horizontal--1'
-      : gap && `g-${gap}`,
+    gap && `g-${gap}`,
     padding && `p-${padding}`,
     paddingLeft && `pl-${paddingLeft}`,
     paddingRight && `pr-${paddingRight}`,
@@ -175,7 +121,7 @@ const Flex = ({
     marginBottom && `mb-${marginBottom}`,
     marginX && `mx-${marginX}`,
     marginY && `my-${marginY}`,
-    position && `${position}`,
+    position && `position-${position}`,
     top && `top-${top}`,
     right && `right-${right}`,
     bottom && `bottom-${bottom}`,
@@ -197,16 +143,16 @@ const Flex = ({
     fill && 'min-width-0',
     (fillWidth || maxWidth) && 'fill-width',
     (fillHeight || maxHeight) && 'fill-height',
-    hide && `${hide}-flex-hide`,
-    show && `${show}-flex-show`,
+    hide === 's' && `${hide}-grid-hide`,
+    show === 's' && `${show}-grid-show`,
     overflow && `overflow-${overflow}`,
     overflowX && `overflow-x-${overflowX}`,
     overflowY && `overflow-y-${overflowY}`,
     zIndex && `z-index-${zIndex}`,
     shadow && `shadow-${shadow}`,
-    colorClass,
-    className,
-    ...variantClasses
+    textSize && `text-size-${textSize}`,
+    textWeight && `text-weight-${textWeight}`,
+    className
   );
 
   const styles: CSSProperties = {
@@ -216,6 +162,7 @@ const Flex = ({
     maxHeight: parseSize(maxHeight, 'height'),
     width: parseSize(width, 'width'),
     height: parseSize(height, 'height'),
+    aspectRatio: aspectRatio,
     ...style,
   };
 
@@ -226,5 +173,4 @@ const Flex = ({
   );
 };
 
-Flex.displayName = 'Flex';
-export { Flex };
+export { Grid };
