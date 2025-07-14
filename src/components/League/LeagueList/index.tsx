@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Flex, Text, Grid, Line } from '@/components';
 import { useTopLeagues } from '../hooks';
 
+import styles from './style.module.scss';
+
 const LeagueList = () => {
   const { data: leagues, isLoading, error } = useTopLeagues();
 
@@ -30,6 +32,7 @@ const LeagueList = () => {
     <Grid fillWidth columns="4" mobileColumns="1" gap="12">
       {leagues?.map((league) => (
         <Flex
+          className={styles.card}
           key={league.league.id}
           horizontal="center"
           direction="column"
@@ -41,12 +44,14 @@ const LeagueList = () => {
           height={14}
           position="relative"
         >
-          <Image
-            src={league.league.logo}
-            alt={league.league.name}
-            width={50}
-            height={70}
-          />
+          <Flex horizontal="center" vertical="center" height={70} fillWidth>
+            <Image
+              src={league.league.logo}
+              alt={league.league.name}
+              width={50}
+              height={70}
+            />
+          </Flex>
           <Text>{league.league.name}</Text>
           <Line fillWidth fullWidth background="neutral-strong" />
           <Text variant="body-default-xs" color="neutral-medium">

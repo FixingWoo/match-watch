@@ -1,0 +1,9 @@
+.card {
+  &:hover {
+    background: var(--neutral-border-medium);
+  }
+
+  img {
+    object-fit: contain;
+  }
+}
