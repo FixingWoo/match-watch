@@ -6,6 +6,7 @@ export * from './Grid';
 export * from './Header';
 export * from './Heading';
 export * from './Icon';
+export * from './Line';
 export * from './Text';
 export * from './ThemeToggle';
 export * from './ToggleButton';
