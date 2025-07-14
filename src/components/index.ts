@@ -7,10 +7,12 @@ export * from './Header';
 export * from './Heading';
 export * from './Icon';
 export * from './Line';
+export * from './Logo';
 export * from './Text';
 export * from './ThemeToggle';
 export * from './ToggleButton';
 
 export * from './League/LeagueList';
+export * from './League/LeagueHeader';
 
 export * from './form-fields/Select';
