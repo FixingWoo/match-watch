@@ -137,22 +137,6 @@ const Select = ({
     handleLabel(value);
   }, [value]);
 
-  useEffect(() => {
-    const selectedIndex = memoizedOptions.findIndex(
-      (option) => option.value === value
-    );
-
-    if (
-      selectedIndex >= 0 &&
-      listRef.current &&
-      itemRefs.current[selectedIndex]
-    ) {
-      itemRefs.current[selectedIndex]?.scrollIntoView({
-        block: 'start',
-      });
-    }
-  }, [isOpen]);
-
   return (
     <Flex
       direction="column"
