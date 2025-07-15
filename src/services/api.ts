@@ -53,6 +53,27 @@ export const footballApi = {
 
     return filteredLeagues;
   },
+
+  // 리그 조회
+  async getLeague(leagueId: number): Promise<League> {
+    const response = await apiClient.get<ApiResponse<League>>('/leagues', {
+      params: { id: leagueId },
+    });
+
+    return response.data.response[0];
+  },
+
+  // 시즌별 리그 데이터 조회
+  async getLeagueBySeason(leagueId: number, season: number): Promise<any> {
+    const response = await apiClient.get('/standings', {
+      params: {
+        league: leagueId,
+        season: season,
+      },
+    });
+
+    return response.data.response;
+  },
 };
 
 export default footballApi;

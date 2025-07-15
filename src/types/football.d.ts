@@ -10,7 +10,12 @@ interface League {
     name: string;
     type: string;
   };
-  season: number;
+  seasons: {
+    year: number;
+    start: string;
+    end: string;
+    current: boolean;
+  }[];
 }
 
 interface Team {
@@ -219,3 +224,5 @@ interface ApiResponse<T> {
   };
   response: T[];
 }
+
+type TabType = 'overview' | 'standings' | 'fixtures' | 'teams' | 'stats';

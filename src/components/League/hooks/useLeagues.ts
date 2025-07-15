@@ -10,3 +10,23 @@ export const useTopLeagues = () => {
     gcTime: 1000 * 60 * 60 * 2,
   });
 };
+
+export const useLeague = (leagueId: number) => {
+  return useQuery({
+    queryKey: ['league', leagueId],
+    queryFn: () => footballApi.getLeague(leagueId),
+    staleTime: 1000 * 60 * 60,
+    gcTime: 1000 * 60 * 60 * 2,
+  });
+};
+
+// 시즌별 리그 데이터 조회 훅
+export const useLeagueBySeason = (leagueId: number, season: number) => {
+  return useQuery({
+    queryKey: ['league', leagueId, season],
+    queryFn: () => footballApi.getLeagueBySeason(leagueId, season),
+    staleTime: 1000 * 60 * 60,
+    gcTime: 1000 * 60 * 60 * 2,
+    enabled: !!leagueId && !!season, // leagueId와 season이 있을 때만 실행
+  });
+};
