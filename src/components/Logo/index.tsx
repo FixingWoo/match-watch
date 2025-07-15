@@ -7,10 +7,16 @@ interface LogoProps {
   alt: string;
   width: number;
   height: number;
-  objectFit: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+  objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
 }
 
-export const Logo = ({ src, alt, width, height, objectFit }: LogoProps) => {
+export const Logo = ({
+  src,
+  alt,
+  width,
+  height,
+  objectFit = 'contain',
+}: LogoProps) => {
   return (
     <Image
       src={src}
