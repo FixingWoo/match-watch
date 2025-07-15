@@ -13,6 +13,5 @@ export * from './ThemeToggle';
 export * from './ToggleButton';
 
 export * from './League/LeagueList';
-export * from './League/LeagueHeader';
 
 export * from './form-fields/Select';
