@@ -7,7 +7,7 @@ import styles from './style.module.scss';
 
 import { Flex, Text } from '@/components';
 
-interface SelectProps
+interface SelectProps<T extends string | number = string | number>
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>,
     CommonProps {
   label?: string;
@@ -18,11 +18,11 @@ interface SelectProps
   error?: boolean;
   errorMessage?: ReactNode;
   description?: ReactNode;
-  value: string;
-  onChange: (value: string) => void;
+  value: T;
+  onChange: (value: T) => void;
 }
 
-const Select = ({
+const Select = <T extends string | number = string | number>({
   id,
   className,
   label,
@@ -38,7 +38,7 @@ const Select = ({
   style,
   ref,
   ...props
-}: SelectProps) => {
+}: SelectProps<T>) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
@@ -78,7 +78,7 @@ const Select = ({
     setIsOpen(!isOpen);
   };
 
-  const handleLabel = (value: string) => {
+  const handleLabel = (value: T) => {
     const label = memoizedOptions.find(
       (option) => option.value === value
     )?.label;
@@ -90,7 +90,7 @@ const Select = ({
     }
   };
 
-  const handleOptionClick = (value: string) => {
+  const handleOptionClick = (value: T) => {
     onChange(value);
     setIsOpen(false);
   };
@@ -194,7 +194,7 @@ const Select = ({
                 <li
                   key={option.value}
                   className={styles.item}
-                  onClick={() => handleOptionClick(option.value)}
+                  onClick={() => handleOptionClick(option.value as T)}
                   ref={(el: HTMLLIElement) => {
                     itemRefs.current[i] = el;
                   }}
